@@ -18,7 +18,7 @@ class SimpleLMSLinks
 
     public function settings_link($links)
     {
-        array_push($links, '<a href="admin.php?page=simplelms">Settings</a>');
+        array_push($links, '<a href="admin.php?page=simplelms_config">Settings</a>');
         return $links;
     }
 }
