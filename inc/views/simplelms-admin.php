@@ -9,6 +9,7 @@ namespace SimpleLMS\Views;
 use SimpleLMS;
 
 require SIMPLELMS_PATH . "inc/api/simplelms-settings.php";
+require SIMPLELMS_PATH . "inc/api/callbacks/simplelms-admin-callbacks.php";
 
 /**
  * `SimpleLMSAdmin` holds all methods related to the admin view.
@@ -16,12 +17,15 @@ require SIMPLELMS_PATH . "inc/api/simplelms-settings.php";
 class SimpleLMSAdmin
 {
     private $settings;
+    private $callbacks;
+
     private $pages = [];
     private $subpages = [];
 
     public function register()
     {
         $this->settings = new SimpleLMS\API\SimpleLMSSettings;
+        $this->callbacks = new SimpleLMS\API\Callbacks\SimpleLMSAdminCallbacks;
 
         $this->set_pages();
         $this->set_subpages();
@@ -36,9 +40,7 @@ class SimpleLMSAdmin
                 "menu_title" => "SimpleLMS",
                 "capability" => "manage_options",
                 "slug" => "simplelms",
-                "callback" => function () {
-                    return require(SIMPLELMS_PATH . "/templates/admin.php");
-                },
+                "callback" => [$this->callbacks, "admin_dashboard"],
                 "icon_url" => "dashicons-welcome-learn-more",
                 "position" => 59 // Right after the seperator, before `Appearance`
             ]
@@ -50,23 +52,19 @@ class SimpleLMSAdmin
         $this->subpages = [
             [
                 "parent_slug" => "simplelms",
-                "page_title" => "Custom Post Types",
-                "menu_title" => "Custom Post Types",
-                "capability" => "manage_options",
-                "slug" => "simplelms_cpt",
-                "callback" => function () {
-                    echo "<h1>Custom Post Types</h1>";
-                }
-            ],
-            [
-                "parent_slug" => "simplelms",
                 "page_title" => "Courses",
                 "menu_title" => "Courses",
                 "capability" => "manage_options",
                 "slug" => "simplelms_courses",
-                "callback" => function () {
-                    echo "<h1>Courses</h1>";
-                }
+                "callback" => [ $this->callbacks,"admin_courses"],
+            ],
+            [
+                "parent_slug" => "simplelms",
+                "page_title" => "Lessons",
+                "menu_title" => "Lessons",
+                "capability" => "manage_options",
+                "slug" => "simplelms_lessons",
+                "callback" => [$this->callbacks,"admin_lessons"],
             ],
             [
                 "parent_slug" => "simplelms",
@@ -74,9 +72,7 @@ class SimpleLMSAdmin
                 "menu_title" => "Configuration",
                 "capability" => "manage_options",
                 "slug" => "simplelms_config",
-                "callback" => function () {
-                    echo "<h1>Configuration</h1>";
-                }
+                "callback" => [$this->callbacks,"admin_configuration"],
             ]
         ];
     }
