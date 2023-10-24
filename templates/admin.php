@@ -1,1 +1,1 @@
-<h1>SimpleLMS</h1>
+<h1>SimpleLMS Dashboard</h1>

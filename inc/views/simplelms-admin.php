@@ -19,10 +19,17 @@ class SimpleLMSAdmin
     private $pages = [];
     private $subpages = [];
 
-    function __construct()
+    public function register()
     {
         $this->settings = new SimpleLMS\API\SimpleLMSSettings;
 
+        $this->set_pages();
+        $this->set_subpages();
+        $this->settings->add_pages($this->pages)->with_subpage("Dashboard")->add_subpages($this->subpages)->register();
+    }
+
+    private function set_pages()
+    {
         $this->pages = [
             [
                 "page_title" => "SimpleLMS",
@@ -30,13 +37,16 @@ class SimpleLMSAdmin
                 "capability" => "manage_options",
                 "slug" => "simplelms",
                 "callback" => function () {
-                    echo "<h1>SimpleLMS</h1>";
+                    return require(SIMPLELMS_PATH . "/templates/admin.php");
                 },
                 "icon_url" => "dashicons-welcome-learn-more",
                 "position" => 59 // Right after the seperator, before `Appearance`
             ]
         ];
+    }
 
+    private function set_subpages()
+    {
         $this->subpages = [
             [
                 "parent_slug" => "simplelms",
@@ -69,12 +79,5 @@ class SimpleLMSAdmin
                 }
             ]
         ];
-
-    }
-
-    public function register()
-    {
-        // add_action("admin_menu", array($this, "add_admin_menu"));
-        $this->settings->add_pages($this->pages)->with_subpage("Dashboard")->add_subpages($this->subpages)->register();
     }
 }
