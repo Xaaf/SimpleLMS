@@ -44,9 +44,10 @@ if (!function_exists("add_action")) {
     exit;
 }
 
-// Set up SimpleLMS paths for easy access
+// Set up SimpleLMS constants for easy access
 define("PLUGIN_PATH", plugin_dir_path(__FILE__));
 define("PLUGIN_URL", plugin_dir_url(__FILE__));
+define("PLUGIN_NAME", plugin_basename(__FILE__));
 
 // Handle requires
 require PLUGIN_PATH . "inc/simplelms-init.php";

@@ -7,6 +7,7 @@
 namespace SimpleLMS;
 
 require PLUGIN_PATH . "inc/base/simplelms-enqueue.php";
+require PLUGIN_PATH . "inc/base/simplelms-links.php";
 require PLUGIN_PATH . "inc/views/simplelms-admin.php";
 
 /**
@@ -23,6 +24,7 @@ final class SimpleLMSInit
         return [
             // /base
             SimpleLMSEnqueue::class,
+            SimpleLMSLinks::class,
 
             // views
             Views\SimpleLMSAdmin::class,
