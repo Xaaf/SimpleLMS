@@ -23,6 +23,9 @@ You can also choose to manually install the plugin - maybe you want to have the 
 
 Now that you have the plugin downloaded, all that's left is to upload it to WordPress. Simply go to the `Plugins` tab, click `Add New`, click `Upload Plugin` and select your freshly downloaded plugin. Hit `Install Now`. After clicking the `Activate` button, you're ready! [Check our wiki for the next steps]()!
 
+# 🗺️ Roadmap
+*Once the plugin is in a stable, minimal state, I'll work on getting together a roadmap of features to come!*
+
 # 🤝 Contributing
 Code contributions, issues and feature requests are all welcome here! Feel free to leave any issues you might encounter over on the [issues page](). [Feature requests]() can also be done there!
 
