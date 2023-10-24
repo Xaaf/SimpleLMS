@@ -6,6 +6,9 @@
 
 namespace SimpleLMS;
 
+/**
+ * `SimpleLMSEnqueue` holds all methods related to enqueueing scripts and assets.
+ */
 class SimpleLMSEnqueue
 {
     public function register()

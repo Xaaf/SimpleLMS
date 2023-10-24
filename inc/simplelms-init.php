@@ -9,6 +9,9 @@ namespace SimpleLMS;
 require PLUGIN_PATH . "inc/base/simplelms-enqueue.php";
 require PLUGIN_PATH . "inc/views/simplelms-admin.php";
 
+/**
+ * `SimpleLMSInit` is responsible for making sure the plugin initialises correctly.
+ */
 final class SimpleLMSInit
 {
     /**

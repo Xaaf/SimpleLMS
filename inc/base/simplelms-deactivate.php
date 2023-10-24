@@ -6,6 +6,9 @@
 
 namespace SimpleLMS;
 
+/**
+ * `SimpleLMSDeactivate` holds all methods related to plugin deactivation.
+ */
 class SimpleLMSDeactivate
 {
     /**

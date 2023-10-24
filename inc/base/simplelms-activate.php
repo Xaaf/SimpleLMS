@@ -6,6 +6,9 @@
 
 namespace SimpleLMS;
 
+/**
+ * `SimpleLMSActivate` holds all methods related to plugin activation.
+ */
 class SimpleLMSActivate
 {
     /**

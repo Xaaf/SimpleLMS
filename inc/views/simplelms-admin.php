@@ -6,6 +6,9 @@
 
 namespace SimpleLMS\Views;
 
+/**
+ * `SimpleLMSAdmin` holds all methods related to the admin view.
+ */
 class SimpleLMSAdmin
 {
     function __construct()
