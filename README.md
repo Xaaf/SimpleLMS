@@ -32,7 +32,7 @@ Code contributions, issues and feature requests are all welcome here! Feel free 
 [Check the contributing guide]() for more information if you're interested.
 
 # ⭐️ Support
-You can Star this repository if you want quick-access! This will also help it stand out more in the crowded world of open-source plugins. You can also choose to support me financially, over on my Patreon. **Please only do this if you are financially able to!**
+You can Star this repository if you want quick-access! This will also help it stand out more in the crowded world of open-source plugins. You can also choose to support me financially, over on my [Patreon](). **Please only do this if you are financially able to!**
 
 # 📝 License
 Copyright © 2023 [Xavi van Dalen](https://github.com/Xaaf). This project is licensed under GPLv3.
