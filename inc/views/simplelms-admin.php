@@ -17,7 +17,7 @@ class SimpleLMSAdmin
 
     public function register()
     {
-        add_action("admin_menu", array($this,"add_admin_menu"));
+        add_action("admin_menu", array($this, "add_admin_menu"));
     }
 
     /**
@@ -25,7 +25,7 @@ class SimpleLMSAdmin
      */
     public function add_admin_menu()
     {
-        add_menu_page("SimpleLMS", "SimpleLMS", "manage_options", "simplelms", array($this,"admin_view_callback"), "dashicons-welcome-learn-more", 59);
+        add_menu_page("SimpleLMS", "SimpleLMS", "manage_options", "simplelms", array($this, "admin_view_callback"), "dashicons-welcome-learn-more", 59);
     }
 
     /**
