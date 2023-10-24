@@ -13,7 +13,7 @@ class SimpleLMSEnqueue
 {
     public function register()
     {
-        add_action("admin_enqueue_scripts", array($this, "admin_enqueue"));
+        add_action("admin_enqueue_scripts", [$this, "admin_enqueue"]);
     }
 
     /**
