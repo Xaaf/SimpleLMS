@@ -1,4 +1,6 @@
 <?php
+use SimpleLMS\SimpleLMSActivate;
+use SimpleLMS\SimpleLMSDeactivate;
 
 /**
  * Plugin Name
@@ -51,6 +53,12 @@ define("PLUGIN_NAME", plugin_basename(__FILE__));
 
 // Handle requires
 require PLUGIN_PATH . "inc/simplelms-init.php";
+require PLUGIN_PATH . "inc/base/simplelms-activate.php";
+require PLUGIN_PATH . "inc/base/simplelms-deactivate.php";
+
+// Register hooks
+register_activation_hook(__FILE__, fn() => SimpleLMSActivate::activate());
+register_deactivation_hook(__FILE__, fn() => SimpleLMSDeactivate::deactivate());
 
 // Initialisation and registering
 if (class_exists("SimpleLMS\SimpleLMSInit")) {
