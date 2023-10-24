@@ -33,6 +33,6 @@ class SimpleLMSAdmin
      */
     public function admin_view_callback()
     {
-        require_once PLUGIN_PATH . "templates/admin.php";
+        require_once SIMPLELMS_PATH . "templates/admin.php";
     }
 }

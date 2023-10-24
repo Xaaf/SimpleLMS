@@ -47,14 +47,14 @@ if (!function_exists("add_action")) {
 }
 
 // Set up SimpleLMS constants for easy access
-define("PLUGIN_PATH", plugin_dir_path(__FILE__));
-define("PLUGIN_URL", plugin_dir_url(__FILE__));
-define("PLUGIN_NAME", plugin_basename(__FILE__));
+define("SIMPLELMS_PATH", plugin_dir_path(__FILE__));
+define("SIMPLELMS_URL", plugin_dir_url(__FILE__));
+define("SIMPLELMS_NAME", plugin_basename(__FILE__));
 
 // Handle requires
-require PLUGIN_PATH . "inc/simplelms-init.php";
-require PLUGIN_PATH . "inc/base/simplelms-activate.php";
-require PLUGIN_PATH . "inc/base/simplelms-deactivate.php";
+require SIMPLELMS_PATH . "inc/simplelms-init.php";
+require SIMPLELMS_PATH . "inc/base/simplelms-activate.php";
+require SIMPLELMS_PATH . "inc/base/simplelms-deactivate.php";
 
 // Register hooks
 register_activation_hook(__FILE__, fn() => SimpleLMSActivate::activate());

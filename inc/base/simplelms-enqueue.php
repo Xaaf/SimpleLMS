@@ -22,6 +22,6 @@ class SimpleLMSEnqueue
      */
     function admin_enqueue()
     {
-        wp_enqueue_style("simplelmsstyle", PLUGIN_URL . "/assets/style.css");
+        wp_enqueue_style("simplelmsstyle", SIMPLELMS_URL . "/assets/style.css");
     }
 }
