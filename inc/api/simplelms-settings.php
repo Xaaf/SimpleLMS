@@ -15,10 +15,18 @@ class SimpleLMSSettings
     private $admin_pages = [];
     private $admin_subpages = [];
 
+    private $settings = [];
+    private $sections = [];
+    private $fields = [];
+
     public function register()
     {
         if (!empty($this->admin_pages)) {
-            add_action("admin_menu", [$this, "add_admin_menu"]);
+            add_action("admin_menu", [$this, "register_admin_menu"]);
+        }
+
+        if (!empty($this->settings)) {
+            add_action("admin_init", [$this, "register_admin_fields"]);
         }
     }
 
@@ -44,7 +52,12 @@ class SimpleLMSSettings
         return $this;
     }
 
-    function with_subpage(string $menu_title = null)
+    /**
+     * Change the title of this page.
+     * @param string $menu_title    New title.
+     * @return `SimpleLMSSettings` Reference to the updated object.
+     */
+    function with_title(string $menu_title = null)
     {
         // We don't have any pages, so no need for a sub-page.
         if (empty($this->admin_pages)) {
@@ -69,9 +82,9 @@ class SimpleLMSSettings
     }
 
     /**
-     * Add all the pages we have to the WordPress admin menu.
+     * Register all the pages we have to the WordPress admin menu.
      */
-    function add_admin_menu()
+    function register_admin_menu()
     {
         foreach ($this->admin_pages as $page) {
             add_menu_page($page['page_title'], $page['menu_title'], $page['capability'], $page['slug'], $page['callback'], $page['icon_url'], $page['position']);
@@ -79,6 +92,39 @@ class SimpleLMSSettings
 
         foreach ($this->admin_subpages as $page) {
             add_submenu_page($page['parent_slug'], $page['page_title'], $page['menu_title'], $page['capability'], $page['slug'], $page['callback']);
+        }
+    }
+
+    public function set_settings(array $settings)
+    {
+        $this->settings = $settings;
+        return $this;
+    }
+
+    public function set_sections(array $sections)
+    {
+        $this->sections = $sections;
+        return $this;
+    }
+
+    public function set_fields(array $fields)
+    {
+        $this->fields = $fields;
+        return $this;
+    }
+
+    function register_admin_fields()
+    {
+        foreach ($this->settings as $setting) {
+            register_setting($setting["option_group"], $setting["option_name"], (isset($setting["callback"]) ? $setting["callback"] : ""));
+        }
+
+        foreach ($this->sections as $section) {
+            add_settings_section($section["id"], $section["title"], (isset($section["callback"]) ? $section["callback"] : ""), $section["page"]);
+        }
+
+        foreach ($this->fields as $field) {
+            add_settings_field($field["id"], $field["title"], (isset($field["callback"]) ? $field["callback"] : ""), $field["page"], $field["section"], (isset($field["args"]) ? $field["args"] : ""));
         }
     }
 }

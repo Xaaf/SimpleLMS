@@ -46,4 +46,26 @@ class SimpleLMSAdminCallbacks
     {
         return require(SIMPLELMS_PATH . "/templates/admin/configuration.php");
     }
+
+    public function admin_options_group($input)
+    {
+        return $input;
+    }
+
+    public function admin_section()
+    {
+        echo "Some section here!";
+    }
+
+    public function admin_fields_some()
+    {
+        $value = esc_attr(get_option("some_field"));
+        echo '<input type="text" class="regular-text" name="some_field" value="' . $value . '" placeholder="Some text...">';
+    }
+
+    public function admin_fields_other()
+    {
+        $value = esc_attr(get_option("some_other_field"));
+        echo '<input type="text" class="regular-text" name="some_other_field" value="' . $value . '" placeholder="Some more text...">';
+    }
 }
