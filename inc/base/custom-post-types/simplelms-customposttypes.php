@@ -26,10 +26,14 @@ final class SimpleLMSCustomPostTypes
 
     public function register()
     {
-        foreach(self::get_post_types() as $class) {
+        foreach (self::get_post_types() as $class) {
             $post_type = self::instantiate($class);
 
             add_action("init", [$post_type, "register_cpt"]);
+
+            if (method_exists($post_type, "add_metas")) {
+                $post_type->add_metas();
+            }
         }
     }
 

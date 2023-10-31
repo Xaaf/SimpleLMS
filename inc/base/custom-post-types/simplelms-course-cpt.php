@@ -60,4 +60,74 @@ class SimpleLMSCourseCPT
 
         register_post_type("course", $args);
     }
+
+    public function add_metas()
+    {
+        add_action("add_meta_boxes", [$this, "add_price_meta"]);
+        add_action("save_post", [$this, "save_price_meta"]);
+    }
+
+    function add_price_meta()
+    {
+        add_meta_box(
+            // id
+            "price_meta_box",
+            // title
+            "Course Price",
+            // callback
+            [$this, "price_meta_box_html"],
+            // id of the screen to display on
+            "course",
+            // context to appear in
+            "side",
+        );
+    }
+
+    function price_meta_box_html($post)
+    {
+        wp_nonce_field("price_inner_meta_box", "price_inner_meta_box_nonce");
+
+        $value = get_post_meta($post->ID, "_price_meta", true);
+        ?>
+        <label for="price_meta_field">
+            <?php _e("Set a pricing for this course.", "textdomain") ?>
+        </label>
+        <input type="number" id="price_meta_field" name="price_meta_field" value="<?php echo esc_attr($value); ?>" size="25" />
+        <?php
+    }
+
+    function save_price_meta($post_id)
+    {
+        // Make sure our nonce is set
+        if (!isset($_POST["price_inner_meta_box_nonce"])) {
+            return $post_id;
+        }
+
+        $nonce = $_POST["price_inner_meta_box_nonce"];
+        
+        // Verify the nonce is valid
+        if (!wp_verify_nonce($nonce, "price_inner_meta_box")) {
+            return $post_id;
+        }
+
+        // Make sure we don't do anything on autosave
+        if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
+            return $post_id;
+        }
+
+        // Make sure the user has proper permission
+        if ("page" == $_POST["post_type"]) {
+            if (!current_user_can("edit_page", $post_id)) {
+                return $post_id;
+            }
+        } else if (!current_user_can("edit_post", $post_id)) {
+            return $post_id;
+        }
+
+        // Sanitize input
+        $data = sanitize_text_field($_POST["price_meta_field"]);
+
+        // Update the meta field
+        update_post_meta($post_id, "_price_meta", $data);
+    }
 }
