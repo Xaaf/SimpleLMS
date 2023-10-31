@@ -9,7 +9,7 @@ namespace SimpleLMS;
 require SIMPLELMS_PATH . "inc/base/simplelms-enqueue.php";
 require SIMPLELMS_PATH . "inc/base/simplelms-links.php";
 require SIMPLELMS_PATH . "inc/base/simplelms-shortcodes.php";
-require SIMPLELMS_PATH . "inc/base/customposttypes/simplelms-customposttypes.php";
+require SIMPLELMS_PATH . "inc/base/custom-post-types/simplelms-customposttypes.php";
 require SIMPLELMS_PATH . "inc/views/simplelms-admin.php";
 
 /**

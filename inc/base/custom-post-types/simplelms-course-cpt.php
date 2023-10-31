@@ -7,16 +7,11 @@
 namespace SimpleLMS;
 
 /**
- * `SimpleLMSCustomPostTypes` holds all methods related to custom post types.
+ * `SimpleLMSCourseCPT` holds the `Course` post-type.
  */
-class SimpleLMSCustomPostTypes
+class SimpleLMSCourseCPT
 {
-    public function register()
-    {
-        add_action("init", [$this, "register_course_cpt"]);
-    }
-
-    function register_course_cpt()
+    public function register_cpt()
     {
         $labels = [
             "name" => _x("Courses", "Post type general name", "textdomain"),
