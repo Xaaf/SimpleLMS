@@ -50,7 +50,7 @@ class SimpleLMSAdmin
                 "slug" => "simplelms",
                 "callback" => [$this->callbacks, "admin_dashboard"],
                 "icon_url" => "dashicons-welcome-learn-more",
-                "position" => 66 // Right after the seperator, before `Appearance`
+                "position" => 67 // Right after `Plugins` and the seperator, before `Appearance`
             ]
         ];
     }

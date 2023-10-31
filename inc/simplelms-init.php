@@ -62,8 +62,8 @@ final class SimpleLMSInit
 
     public static function set_admin_menu_seperators()
     {
-        // Our CPTs start at 66
-        self::add_admin_menu_separator(65);
+        // Our CPTs start at 67
+        self::add_admin_menu_separator(66);
 
         // Add a seperator before we get back to Wordpress settings
         self::add_admin_menu_separator(69);

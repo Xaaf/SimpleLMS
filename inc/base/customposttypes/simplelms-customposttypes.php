@@ -57,7 +57,7 @@ class SimpleLMSCustomPostTypes
             'capability_type' => 'post',
             'has_archive' => true,
             'hierarchical' => false,
-            'menu_position' => 67,
+            'menu_position' => 68,
             'menu_icon' => "dashicons-book",
             'supports' => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments'),
             'show_in_rest' => true,
