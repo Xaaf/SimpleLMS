@@ -15,7 +15,7 @@ class SimpleLMSSettings
     private $admin_pages = [];
     private $admin_subpages = [];
 
-    private $settings = [];
+    private $groups = [];
     private $sections = [];
     private $fields = [];
 
@@ -25,7 +25,7 @@ class SimpleLMSSettings
             add_action("admin_menu", [$this, "register_admin_menu"]);
         }
 
-        if (!empty($this->settings)) {
+        if (!empty($this->groups)) {
             add_action("admin_init", [$this, "register_admin_fields"]);
         }
     }
@@ -97,7 +97,7 @@ class SimpleLMSSettings
 
     public function set_settings(array $settings)
     {
-        $this->settings = $settings;
+        $this->groups = $settings;
         return $this;
     }
 
@@ -115,7 +115,7 @@ class SimpleLMSSettings
 
     function register_admin_fields()
     {
-        foreach ($this->settings as $setting) {
+        foreach ($this->groups as $setting) {
             register_setting($setting["option_group"], $setting["option_name"], (isset($setting["callback"]) ? $setting["callback"] : ""));
         }
 

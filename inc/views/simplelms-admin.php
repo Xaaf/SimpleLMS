@@ -34,7 +34,10 @@ class SimpleLMSAdmin
         $this->set_section_values();
         $this->set_field_values();
 
-        $this->settings->add_pages($this->pages)->with_title("Dashboard")->add_subpages($this->subpages)->register();
+        $this->settings->add_pages($this->pages)
+            ->with_title("Dashboard")
+            ->add_subpages($this->subpages)
+            ->register();
     }
 
     private function set_pages()
@@ -47,7 +50,7 @@ class SimpleLMSAdmin
                 "slug" => "simplelms",
                 "callback" => [$this->callbacks, "admin_dashboard"],
                 "icon_url" => "dashicons-welcome-learn-more",
-                "position" => 59 // Right after the seperator, before `Appearance`
+                "position" => 66 // Right after the seperator, before `Appearance`
             ]
         ];
     }
@@ -55,22 +58,22 @@ class SimpleLMSAdmin
     private function set_subpages()
     {
         $this->subpages = [
-            [
-                "parent_slug" => "simplelms",
-                "page_title" => "Courses",
-                "menu_title" => "Courses",
-                "capability" => "manage_options",
-                "slug" => "simplelms_courses",
-                "callback" => [$this->callbacks, "admin_courses"],
-            ],
-            [
-                "parent_slug" => "simplelms",
-                "page_title" => "Lessons",
-                "menu_title" => "Lessons",
-                "capability" => "manage_options",
-                "slug" => "simplelms_lessons",
-                "callback" => [$this->callbacks, "admin_lessons"],
-            ],
+            // [
+            //     "parent_slug" => "simplelms",
+            //     "page_title" => "Courses",
+            //     "menu_title" => "Courses",
+            //     "capability" => "manage_options",
+            //     "slug" => "simplelms_courses",
+            //     "callback" => [$this->callbacks, "admin_courses"],
+            // ],
+            // [
+            //     "parent_slug" => "simplelms",
+            //     "page_title" => "Lessons",
+            //     "menu_title" => "Lessons",
+            //     "capability" => "manage_options",
+            //     "slug" => "simplelms_lessons",
+            //     "callback" => [$this->callbacks, "admin_lessons"],
+            // ],
             [
                 "parent_slug" => "simplelms",
                 "page_title" => "Configuration",
@@ -169,7 +172,7 @@ class SimpleLMSAdmin
 
                 // ID for the section to which this field belongs
                 "section" => "simplelms_admin_index",
-                
+
                 // Some optional arguments
                 "args" => []
             ]

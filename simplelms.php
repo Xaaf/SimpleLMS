@@ -1,6 +1,7 @@
 <?php
 use SimpleLMS\SimpleLMSActivate;
 use SimpleLMS\SimpleLMSDeactivate;
+use SimpleLMS\SimpleLMSInit;
 
 /**
  * Plugin Name
@@ -63,4 +64,6 @@ register_deactivation_hook(__FILE__, fn() => SimpleLMSDeactivate::deactivate());
 // Initialisation and registering
 if (class_exists("SimpleLMS\SimpleLMSInit")) {
     SimpleLMS\SimpleLMSInit::register_services();
+    // SimpleLMS\SimpleLMSInit::set_admin_menu_seperators();
+    add_action("admin_menu", fn() => SimpleLMSInit::set_admin_menu_seperators());
 }

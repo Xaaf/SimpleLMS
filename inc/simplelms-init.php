@@ -8,6 +8,7 @@ namespace SimpleLMS;
 
 require SIMPLELMS_PATH . "inc/base/simplelms-enqueue.php";
 require SIMPLELMS_PATH . "inc/base/simplelms-links.php";
+require SIMPLELMS_PATH . "inc/base/customposttypes/simplelms-customposttypes.php";
 require SIMPLELMS_PATH . "inc/views/simplelms-admin.php";
 
 /**
@@ -17,16 +18,19 @@ final class SimpleLMSInit
 {
     /**
      * Keeps the classes of all services in an array. 
-     * @return array List of services
+     * @return array List of services.
      */
     public static function get_services()
     {
         return [
-            // /base
+                // /base
             SimpleLMSEnqueue::class,
             SimpleLMSLinks::class,
 
-            // views
+                // /base/customposttypes
+            SimpleLMSCustomPostTypes::class,
+
+                // /views
             Views\SimpleLMSAdmin::class,
         ];
     }
@@ -54,5 +58,32 @@ final class SimpleLMSInit
     private static function instantiate($class)
     {
         return new $class();
+    }
+
+    public static function set_admin_menu_seperators()
+    {
+        // Our CPTs start at 66
+        self::add_admin_menu_separator(65);
+
+        // Add a seperator before we get back to Wordpress settings
+        self::add_admin_menu_separator(69);
+    }
+
+    static function add_admin_menu_separator($position)
+    {
+        global $menu;
+
+        if (!empty($menu)) {
+            $index = 0;
+            foreach ($menu as $offset => $section) {
+                if (substr($section[2], 0, 9) == 'separator')
+                    $index++;
+                if ($offset >= $position) {
+                    $menu[$position] = array('', 'read', "separator{$index}", '', 'wp-menu-separator');
+                    break;
+                }
+            }
+            ksort($menu);
+        }
     }
 }
