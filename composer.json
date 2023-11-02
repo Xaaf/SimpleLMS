@@ -1,0 +1,19 @@
+{
+    "name": "xaaf/simplelms",
+    "description": "Learning Management Systems made simpler.",
+    "type": "project",
+    "license": "-",
+    "authors": [
+        {
+            "name": "Xavi",
+            "email": "me@xaaf.dev"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "SimpleLMS\\": "./core"
+        }
+    }
+}

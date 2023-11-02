@@ -1,0 +1,2 @@
+# /vendor is used by Composer. Use `composer install` to get what's needed.
+/vendor/

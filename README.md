@@ -1,5 +1,5 @@
 # SimpleLMS
-> It's 2023! LMS doesn't need to be complicated anymore!
+> Learning Management Systems made simpler.
 
 SimpleLMS is a project to strengthen my PHP skills. Its origin lies in a family member struggling with finding an LMS that fit their specific needs, as most other LMS' out there are either super expensive, or super complicated. It's 2023, so why is it still so complicated? SimpleLMS aims to provide an easy-to-use experience for people who want to put courses on their WordPress websites.
 
@@ -14,14 +14,21 @@ The easiest way to install SimpleLMS is to install it through WordPress itself! 
 
 You can also choose to manually install the plugin - maybe you want to have the latest, cutting-edge features. Installing the plugin this way is also really simple. You can opt for two ways of downloading it.
 
+#### Requirements
+To get the plugin ready manually, you need to have [Composer](https://getcomposer.org/) installed on your machine.
+
+#### Steps
 - Downloading the source
     - Click the green `Code` button in the top-right.
     - Press `Download ZIP`. 
 - Downloading a development release
     - Click on the latest release in the right sidebar.
     - Press `SimpleLMS-vX.X.X-development.zip`
+- Unzip it
+- Open up a terminal, navigate to the freshly unzipped source
+- Run the command `composer install`
 
-Now that you have the plugin downloaded, all that's left is to upload it to WordPress. Simply go to the `Plugins` tab, click `Add New`, click `Upload Plugin` and select your freshly downloaded plugin. Hit `Install Now`. After clicking the `Activate` button, you're ready! [Check our wiki for the next steps]()!
+Now that you have the plugin downloaded, all that's left is to upload it to WordPress. Simply go to the `Plugins` tab, click `Add New`, click `Upload Plugin` and select your freshly downloaded plugin (you can upload the entire source folder). Hit `Install Now`. After clicking the `Activate` button, you're ready! [Check our wiki for the next steps]()!
 
 # 🗺️ Roadmap
 *Once the plugin is in a stable, minimal state, I'll work on getting together a roadmap of features to come!*

@@ -1,7 +1,4 @@
 <?php
-use SimpleLMS\SimpleLMSActivate;
-use SimpleLMS\SimpleLMSDeactivate;
-use SimpleLMS\SimpleLMSInit;
 
 /**
  * Plugin Name
@@ -41,29 +38,16 @@ You should have received a copy of the GNU General Public License
 along with SimpleLMS. If not, see https://www.gnu.org/licenses/gpl-3.0.txt.
 */
 
-// Don't expose information
-if (!function_exists("add_action")) {
-    echo "You're not supposed to be here...";
-    exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
 }
 
-// Set up SimpleLMS constants for easy access
+// Set up the autoloader
+if (file_exists(dirname(__FILE__) . "/vendor/autoload.php")) {
+    require_once(dirname(__FILE__) . "/vendor/autoload.php");
+}
+
 define("SIMPLELMS_PATH", plugin_dir_path(__FILE__));
-define("SIMPLELMS_URL", plugin_dir_url(__FILE__));
 define("SIMPLELMS_NAME", plugin_basename(__FILE__));
 
-// Handle requires
-require SIMPLELMS_PATH . "inc/simplelms-init.php";
-require SIMPLELMS_PATH . "inc/base/simplelms-activate.php";
-require SIMPLELMS_PATH . "inc/base/simplelms-deactivate.php";
-
-// Register hooks
-register_activation_hook(__FILE__, fn() => SimpleLMSActivate::activate());
-register_deactivation_hook(__FILE__, fn() => SimpleLMSDeactivate::deactivate());
-
-// Initialisation and registering
-if (class_exists("SimpleLMS\SimpleLMSInit")) {
-    SimpleLMS\SimpleLMSInit::register_services();
-    // SimpleLMS\SimpleLMSInit::set_admin_menu_seperators();
-    add_action("admin_menu", fn() => SimpleLMSInit::set_admin_menu_seperators());
-}
+SimpleLMS\Init::setup();
