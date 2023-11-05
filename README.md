@@ -7,7 +7,7 @@ SimpleLMS is a project to strengthen my PHP skills. Its origin lies in a family 
 To install SimpleLMS, you can go one of two routes.
 
 ### 1. Install through WordPress
-The easiest way to install SimpleLMS is to install it through WordPress itself! Simply click on the `Plugins` tab, click `Add New` and search for SimpleLMS. Once installed, hit the `Activate` button, and you're good to go! [Check our wiki for the next steps]()!
+The easiest way to install SimpleLMS is to install it through WordPress itself! Simply click on the `Plugins` tab, click `Add New` and search for SimpleLMS. Once installed, hit the `Activate` button, and you're good to go! [Check our wiki for the next steps](https://github.com/Xaaf/SimpleLMS/wiki)!
 
 ### 2. Manual Installation
 > ⚠️**Warning** Installing the plugin this way, uses the latest source. This means that you will most likely encounter bugs and other issues, that other users might not! You have been warned...
@@ -28,15 +28,15 @@ To get the plugin ready manually, you need to have [Composer](https://getcompose
 - Open up a terminal, navigate to the freshly unzipped source
 - Run the command `composer install`
 
-Now that you have the plugin downloaded, all that's left is to upload it to WordPress. Simply go to the `Plugins` tab, click `Add New`, click `Upload Plugin` and select your freshly downloaded plugin (you can upload the entire source folder). Hit `Install Now`. After clicking the `Activate` button, you're ready! [Check our wiki for the next steps]()!
+Now that you have the plugin downloaded, all that's left is to upload it to WordPress. Simply go to the `Plugins` tab, click `Add New`, click `Upload Plugin` and select your freshly downloaded plugin (you can upload the entire source folder). Hit `Install Now`. After clicking the `Activate` button, you're ready! [Check our wiki for the next steps](https://github.com/Xaaf/SimpleLMS/wiki)!
 
 # 🗺️ Roadmap
 *Once the plugin is in a stable, minimal state, I'll work on getting together a roadmap of features to come!*
 
 # 🤝 Contributing
-Code contributions, issues and feature requests are all welcome here! Feel free to leave any issues you might encounter over on the [issues page](). [Feature requests]() can also be done there!
+Code contributions, issues and feature requests are all welcome here! Feel free to leave any issues you might encounter over on the [issues page](https://github.com/Xaaf/SimpleLMS/issues/new). [Feature requests](https://github.com/Xaaf/SimpleLMS/issues/new) can also be done there!
 
-[Check the contributing guide]() for more information if you're interested.
+[Check the contributing guide](https://github.com/Xaaf/SimpleLMS/blob/main/CONTRIBUTE.md) for more information if you're interested.
 
 # ⭐️ Support
 You can Star this repository if you want quick-access! This will also help it stand out more in the crowded world of open-source plugins. You can also choose to support me financially, over on my [Patreon](). **Please only do this if you are financially able to!**
