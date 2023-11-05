@@ -1,0 +1,28 @@
+.course-list {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(3, 33%);
+    column-gap: 10px;
+    row-gap: 10px;
+}
+
+.course-listing {
+    padding: 20px;
+    text-align: center;
+
+    background-color: rgb(245, 245, 245);
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.course-listing:hover {
+    background-color: rgb(250, 250, 250);
+}
+
+.course-title {
+    border-bottom: 1px solid rgb(230, 230, 230);
+}
+
+.course-description {
+    text-align: left;
+}

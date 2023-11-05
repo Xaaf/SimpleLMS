@@ -47,7 +47,8 @@ if (file_exists(dirname(__FILE__) . "/vendor/autoload.php")) {
     require_once(dirname(__FILE__) . "/vendor/autoload.php");
 }
 
-define("SIMPLELMS_PATH", plugin_dir_path(__FILE__));
 define("SIMPLELMS_NAME", plugin_basename(__FILE__));
+define("SIMPLELMS_PATH", plugin_dir_path(__FILE__));
+define("SIMPLELMS_URL", plugin_dir_url(__FILE__));
 
 SimpleLMS\Init::setup();

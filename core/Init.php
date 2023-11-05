@@ -19,10 +19,14 @@ class Init
      * Reference to all classes we want to be instantiating.
      */
     private static $classes = [
+        Enqueue::class,
+
         Admin\PluginLinks::class,
         Admin\RenderSidebar::class,
 
         CustomPostTypes\CustomPostTypeController::class,
+
+        Shortcodes\ShortcodeController::class,
     ];
 
     /**

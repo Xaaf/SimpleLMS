@@ -58,7 +58,7 @@ class CourseCPT extends CustomPostType
             "hierarchical" => false,
             "menu_position" => 68,
             "menu_icon" => "dashicons-book",
-            "supports" => ["title", "editor", "author", "thumbnail", "excerpt", "comments"],
+            "supports" => ["title", "editor", "author", "thumbnail", "excerpt"],
             "show_in_rest" => true,
         ];
     }
